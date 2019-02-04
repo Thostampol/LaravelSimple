@@ -15,7 +15,8 @@ class TestinputController extends Controller
     public function index()
     {
         //
-        return ('ini home');
+        $testInput=\App\testInput::all();
+        return view('coba',compact('testInput'));
     }
 
     /**
@@ -65,7 +66,8 @@ class TestinputController extends Controller
     public function edit($id)
     {
         //
-        return ('ini view edit '.$id);
+        $testinput = \App\testInput::find($id);
+        return view('testinputedit',compact('testinput','id'));
     }
 
     /**
@@ -78,7 +80,11 @@ class TestinputController extends Controller
     public function update(Request $request, $id)
     {
         //
-        return ('ini update');
+        $save = \App\testInput::find($id);   
+        $save->name = $request->name;     
+        $save->keterangan = $request->keterangan; 
+        $save->save();
+        return redirect('test')->with('success','Information has been updated');   
     }
 
     /**

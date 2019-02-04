@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('kategoris','KategoriController');
-Route::get('/coba', function () {
-    return view('coba');
-});
+// Route::get('/coba', function () {
+//     return view('coba');
+// });
 Route::resource('/test', 'TestinputController');
 
 Auth::routes();
