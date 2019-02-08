@@ -18,9 +18,18 @@ Route::resource('kategoris','KategoriController');
 // Route::get('/coba', function () {
 //     return view('coba');
 // });
-Route::resource('/test', 'TestinputController');
+Route::get('/avatars/{filename}', function ($filename){
+    $path = storage_path() . '/images/' . $filename;
+    if(!File::exists($path)) abort(404);
+    $file = File::get($path);
+    $type = File::mimeType($path);
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+    return $response;
+})->name('avatar');
 
 Auth::routes();
 
+Route::resource('/test', 'TestinputController');
 Route::get('/home', 'HomeController@index');
 

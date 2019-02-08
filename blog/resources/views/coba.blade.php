@@ -14,15 +14,22 @@
                 <th>name</th>
                 <th>keterangan</th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
+
         <tbody>
             @foreach($testInput as $row)
             <tr>
                 <td>{{$row['name']}}</td>
                 <td>{{$row['keterangan']}}</td>
+                <td><img src="{{ Storage::disk('local')->url($row['filename']) }}" width="50" height="50"></td>
                 <td><a href="{{action('TestinputController@edit', $row['id'])}}" class="btn btn-warning">Edit</a></td>
             </tr>
             @endforeach
         </tbody>
     </table>
+    @php
+    /*{{route('avatar',$row['filename'])}}*/
+    @endphp
+            

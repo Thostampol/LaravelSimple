@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class TestinputController extends Controller
 {
+    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -39,10 +45,17 @@ class TestinputController extends Controller
     public function store(Request $request)
     {
         //dd($request);
+        if($request->hasfile('filename')){
+            $file = $request->file('filename');
+            $name=time()."_".$file->getClientOriginalName();
+            $file->move(storage_path().'/app/public/', $name);
+        }
         $save = new testInput;   
-        $save->name = $request->name;     
-        $save->keterangan = $request->keterangan; 
-        $save->save();    
+        $save->name       = $request->name;     
+        $save->keterangan = $request->keterangan;
+        $save->filename   = $name; 
+        $save->save();   
+        return redirect('test')->with('success','Information has been Added');   
     }
 
     /**
