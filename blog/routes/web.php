@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'PostController@index')->name('index');
+Route::get('post/{id}', 'PostController@show')->name('post.show');
 Route::resource('kategoris','KategoriController');
 // Route::get('/coba', function () {
 //     return view('coba');
