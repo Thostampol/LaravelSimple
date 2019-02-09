@@ -50,7 +50,7 @@
             <h2 class="post-title">
              {{ $data->judul }}
             </h2>
-            <h3 class="post-subtitle">
+            <h3 class="post-subtitle">     
                 {{ $data->isipost }}
             </h3>
           </a>
