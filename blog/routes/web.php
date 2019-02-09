@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.index');
 });
 Route::resource('kategoris','KategoriController');
 // Route::get('/coba', function () {
