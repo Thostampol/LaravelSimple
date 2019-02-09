@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
+Route::get('/', 'PostController@index')->name('index');
 Route::resource('kategoris','KategoriController');
 // Route::get('/coba', function () {
 //     return view('coba');
