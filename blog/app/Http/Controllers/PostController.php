@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use\App\testInput;
+use DateTime;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -27,6 +29,8 @@ class PostController extends Controller
     public function create()
     {
         //
+        $kategori = \App\testInput::all();
+        return view('backend.posts.create',compact('kategori'));
     }
 
     /**
@@ -38,6 +42,14 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+        $save = new Post; 
+        $now  = new DateTime();  
+        $save->judul       = $request->judul;     
+        $save->isipost     = $request->isipost;
+        $save->kategori    = $request->kategori; 
+        $save->tgl_post    = $now; 
+        $save->save();   
+        return redirect('/backend-admin/posts')->with('success','Information has been Added');   
     }
 
     /**

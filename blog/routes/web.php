@@ -24,10 +24,10 @@ Route::get('/avatars/{filename}', function ($filename){
     return $response;
 })->name('avatar');
 
-Route::resource('/backend-admin', 'BackendController');
-
 Auth::routes();
-
+Route::resource('/backend-admin', 'BackendController');
+Route::resource('/backend-admin/post/create', 'PostController@create');
+Route::resource('/backend-admin/post/store', 'PostController@store');
 Route::resource('/test', 'TestinputController');
 Route::get('/home', 'HomeController@index');
 

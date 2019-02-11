@@ -8,6 +8,6 @@ class Post extends Model
 {
     //
     protected $fillable = [
-        'id', 'judul','tgl_post',"kategori",'created_at'
+        'id','judul','isipost','tgl_post',"kategori"
     ];
 }
