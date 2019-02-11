@@ -15,7 +15,7 @@ class PostController extends Controller
     public function index()
     {
         //
-        $datas=Post::all();
+        $datas=Post::take(5)->get();
         return view('frontend.index',compact('datas'));
     }
 

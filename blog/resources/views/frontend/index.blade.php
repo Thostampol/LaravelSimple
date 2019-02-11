@@ -24,7 +24,6 @@
 
 <body>
 @include('frontend.includes.nav')
-
   <!-- Page Header -->
   <header class="masthead" style="background-image: url('img/home-bg.jpg')">
     <div class="overlay"></div>
@@ -48,10 +47,10 @@
         <div class="post-preview">
           <a href="post.html">
             <h2 class="post-title">
-             {{ $data->judul }}
+            {{ $data->judul }}
             </h2>
             <h3 class="post-subtitle">     
-                {{ $data->isipost }}
+            {{ str_limit($data->isipost, $limit = 50, $end = ' ...') }}
             </h3>
           </a>
           <p class="post-meta">Posted by
@@ -67,7 +66,6 @@
       </div>
     </div>
   </div>
-
   <hr>
 
   <!-- Footer -->

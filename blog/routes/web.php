@@ -14,9 +14,6 @@
 Route::get('/', 'PostController@index')->name('index');
 Route::get('post/{id}', 'PostController@show')->name('post.show');
 Route::resource('kategoris','KategoriController');
-// Route::get('/coba', function () {
-//     return view('coba');
-// });
 Route::get('/avatars/{filename}', function ($filename){
     $path = storage_path() . '/images/' . $filename;
     if(!File::exists($path)) abort(404);
@@ -26,6 +23,8 @@ Route::get('/avatars/{filename}', function ($filename){
     $response->header("Content-Type", $type);
     return $response;
 })->name('avatar');
+
+Route::resource('/backend-admin', 'BackendController');
 
 Auth::routes();
 
