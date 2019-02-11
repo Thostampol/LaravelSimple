@@ -31,7 +31,26 @@
             Home itu beranda
           </div>
           <div class="card-body">
-            Selamat datang di halaman admin 
+            <div class="table-responsive">
+                    <table class="table table-bordered w-100">
+                        <thead>
+                        <tr>
+                            <th>Judul</th>
+                            <th>Kategori</th>
+                            <th>Tgl Post</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($datas as $row)
+                        <tr>
+                            <td>{{ $row->judul }}</td>
+                            <td>{{ $row->kategori }}</td>
+                            <td>{{ $row->tgl_post }}</td>
+                        </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
           </div>
           <div class="card-footer small text-muted">   </div>
         </div>
