@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use DB;
 use Illuminate\Http\Request;
 
 class BackendController extends Controller
@@ -17,7 +18,9 @@ class BackendController extends Controller
     }
 
     public function show(){
-        $datas=Post::all();
+        $datas = DB::table('posts')
+            ->leftJoin('test_inputs', 'posts.kategori', '=', 'test_inputs.id')
+            ->get();
         return view('backend.posts.lists',compact('datas'));
     }
 }

@@ -27,6 +27,11 @@
         </ol>
         <!-- Area Chart Example-->
         <div class="card mb-3">
+        @if (\Session::has('success'))
+            <div class="alert alert-success">
+                <p>{{ \Session::get('success') }}</p>
+            </div><br />
+        @endif
           <div class="card-header">
             Home itu beranda
           </div>
@@ -44,7 +49,7 @@
                         @foreach($datas as $row)
                         <tr>
                             <td>{{ $row->judul }}</td>
-                            <td>{{ $row->kategori }}</td>
+                            <td>{{ $row->name }}</td>
                             <td>{{ $row->tgl_post }}</td>
                         </tr>
                         @endforeach
