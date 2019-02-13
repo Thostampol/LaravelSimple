@@ -33,7 +33,7 @@
             </div><br />
         @endif
           <div class="card-header">
-            Home itu beranda
+            Home itu beranda <a href="post/create" class="btn btn-success">Add data</a>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -52,7 +52,13 @@
                             <td>{{ $row->judul }}</td>
                             <td>{{ $row->name }}</td>
                             <td>{{ $row->tgl_post }}</td>
-                            <td><a href="post/{{ $row->idpost }}/edit" class="btn btn-warning">Edit</a></td>
+                            <td><a href="post/{{ $row->idpost }}/edit" class="btn btn-warning">Edit</a>
+                            <form action="{{action('PostController@destroy', $row->idpost)}}" method="post">
+                            {{ csrf_field() }}
+                            <input name="_method" type="hidden" value="DELETE">
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                          </form>
+                            </td>
                         </tr>
                         @endforeach
                         </tbody>

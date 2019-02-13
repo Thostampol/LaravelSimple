@@ -107,5 +107,8 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+        $delete = Post::find($id);
+        $delete->delete();
+        return redirect('/backend-admin/posts')->with('success','Information has been deleted');
     }
 }
