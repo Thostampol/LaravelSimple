@@ -52,7 +52,7 @@
                             <td>{{ $row->judul }}</td>
                             <td>{{ $row->name }}</td>
                             <td>{{ $row->tgl_post }}</td>
-                            <td><a href="" class="btn btn-warning">Edit</a></td>
+                            <td><a href="post/{{ $row->idpost }}/edit" class="btn btn-warning">Edit</a></td>
                         </tr>
                         @endforeach
                         </tbody>

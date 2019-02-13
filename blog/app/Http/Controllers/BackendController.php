@@ -19,6 +19,7 @@ class BackendController extends Controller
 
     public function show(){
         $datas = DB::table('posts')
+            ->select("*","posts.id AS idpost")
             ->leftJoin('test_inputs', 'posts.kategori', '=', 'test_inputs.id')
             ->get();
         return view('backend.posts.lists',compact('datas'));

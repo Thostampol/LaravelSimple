@@ -31,15 +31,16 @@
             Home itu beranda
           </div>
           <div class="card-body">
-          <form method="post" action="/backend-admin/post/store" enctype="multipart/form-data">
+          <form method="post" action="/backend-admin/post/{{ $datas->id }}" enctype="multipart/form-data">
           {{ csrf_field() }}
+          <input name="_method" type="hidden" value="PATCH">
                 <div class="form-group">
                         <label for="exampleInputPassword1">Judul</label>
-                        <input name="judul" type="text" class="form-control" placeholder="">
+                        <input name="judul" type="text" class="form-control" placeholder="" value="{{ $datas->judul }}">
                 </div>
                 <div class="form-group">
                         <label for="exampleInputPassword1">isi post</label>
-                        <textarea name="isipost" type="text" class="form-control" placeholder=""></textarea>
+                        <textarea name="isipost" type="text" class="form-control" placeholder="">{{ $datas->isipost }}</textarea>
                 </div>
                 <div class="form-group">
                         <label for="exampleInputPassword1">kategori</label>

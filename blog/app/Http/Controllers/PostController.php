@@ -90,6 +90,12 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $save = Post::find($id);
+        $save->judul = $request->judul;
+        $save->isipost = $request->isipost;
+        $save->kategori = $request->kategori;
+        $save->save();   
+        return redirect('/backend-admin/posts')->with('success','Information has been Updated');   
     }
 
     /**
