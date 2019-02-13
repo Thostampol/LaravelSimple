@@ -27,39 +27,38 @@
         </ol>
         <!-- Area Chart Example-->
         <div class="card mb-3">
-        @if (\Session::has('success'))
-            <div class="alert alert-success">
-                <p>{{ \Session::get('success') }}</p>
-            </div><br />
-        @endif
           <div class="card-header">
             Home itu beranda
           </div>
           <div class="card-body">
-            <div class="table-responsive">
-                    <table class="table table-bordered w-100">
-                        <thead>
-                        <tr>
-                            <th>Judul</th>
-                            <th>Kategori</th>
-                            <th>Tgl Post</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($datas as $row)
-                        <tr>
-                            <td>{{ $row->judul }}</td>
-                            <td>{{ $row->name }}</td>
-                            <td>{{ $row->tgl_post }}</td>
-                            <td><a href="" class="btn btn-warning">Edit</a></td>
-                        </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+          <form method="post" action="/backend-admin/post/store" enctype="multipart/form-data">
+          {{ csrf_field() }}
+                <div class="form-group">
+                        <label for="exampleInputPassword1">Judul</label>
+                        <input name="judul" type="text" class="form-control" placeholder="">
                 </div>
+                <div class="form-group">
+                        <label for="exampleInputPassword1">isi post</label>
+                        <textarea name="isipost" type="text" class="form-control" placeholder=""></textarea>
+                </div>
+                <div class="form-group">
+                        <label for="exampleInputPassword1">kategori</label>
+                        <select name="kategori" class="form-control">
+                            @foreach($kategori as $row)
+                            <option value="{{ $row-> id}}">{{ $row-> name}}</option>
+                            @endforeach
+                        </select>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-4" style="margin-top:60px">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                </div>
+            </form>
           </div>
-          <div class="card-footer small text-muted">   </div>
+          <div class="card-footer small text-muted">   
+
+          </div>
         </div>
 
       </div>

@@ -74,6 +74,10 @@ class PostController extends Controller
     public function edit($id)
     {
         //
+        $datas = Post::find($id);
+        $kategori = \App\testInput::all();
+        return view('backend.posts.update', compact(['datas','kategori']));
+        
     }
 
     /**
