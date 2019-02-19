@@ -22,7 +22,7 @@ class TestinputController extends Controller
     {
         //
         $testInput=\App\testInput::all();
-        return view('coba',compact('testInput'));
+        return view('backend.kategori.coba',compact('testInput'));
     }
 
     /**
@@ -33,7 +33,7 @@ class TestinputController extends Controller
     public function create()
     {
         //
-        return view('testinput');
+        return view('backend.kategori.testinput');
     }
 
     /**
@@ -80,7 +80,7 @@ class TestinputController extends Controller
     {
         //
         $testinput = \App\testInput::find($id);
-        return view('testinputedit',compact('testinput','id'));
+        return view('backend.kategori.testinputedit',compact('testinput','id'));
     }
 
     /**
