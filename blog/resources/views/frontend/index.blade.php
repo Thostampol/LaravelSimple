@@ -45,7 +45,7 @@
       <div class="col-lg-8 col-md-10 mx-auto">
       @foreach($datas as $data)
         <div class="post-preview">
-          <a href="post.html">
+          <a href="/post/{{ $data->id }}">
             <h2 class="post-title">
             {{ $data->judul }}
             </h2>
@@ -61,7 +61,7 @@
         @endforeach
         <!-- Pager -->
         <div class="clearfix">
-          <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+          {{ $datas->links("vendor.pagination.bootstrap-4") }}
         </div>
       </div>
     </div>

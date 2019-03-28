@@ -15,9 +15,7 @@
   <div id="wrapper">
   @include('backend.includes.menu')
     <div id="content-wrapper">
-
       <div class="container-fluid">
-
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
@@ -44,7 +42,7 @@
               <div class="row">
                 <div class="col-md-4"></div>
                   <div class="form-group col-md-4">
-                    <label for="Email">keteranaan:</label>
+                    <label for="Email">keterangan:</label>
                     <input type="text" class="form-control" name="keterangan"  value="{{ $testinput->keterangan }}">
                   </div>
                 </div>
@@ -62,7 +60,6 @@
 
           </div>
         </div>
-
       </div>
       <!-- /.container-fluid -->
 

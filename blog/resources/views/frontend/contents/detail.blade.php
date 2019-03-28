@@ -32,6 +32,7 @@
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
+      
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-heading">
             <h1> {{ $datas->judul }}</h1>
@@ -47,6 +48,9 @@
   <!-- Post Content -->
   <article>
     <div class="container">
+      <div class="clearfix">
+          <a class="btn btn-primary float-left" href="{{ url()->previous() }}">&larr; Back</a>
+      </div>
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
             {{ $datas->isipost }}

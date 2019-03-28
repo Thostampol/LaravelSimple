@@ -22,7 +22,7 @@ class TestinputController extends Controller
     {
         //
         $testInput=\App\testInput::all();
-        return view('backend.kategori.coba',compact('testInput'));
+        return view('backend.kategori.list',compact('testInput'));
     }
 
     /**

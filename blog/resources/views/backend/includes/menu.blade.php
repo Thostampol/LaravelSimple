@@ -7,18 +7,13 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="/backend-admin/test">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Kategori</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="/backend-admin/post">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Post</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
       </li>
     </ul>
