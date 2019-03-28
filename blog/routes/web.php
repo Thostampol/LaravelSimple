@@ -25,8 +25,9 @@ Route::get('/avatars/{filename}', function ($filename){
 })->name('avatar');
 
 Auth::routes();
+Route::resource('/backend-admin/kategori', 'TestinputController');
 Route::resource('/backend-admin', 'BackendController', ['only' => ['index', 'show']]);
 Route::resource('/backend-admin/post', 'PostController');
-Route::resource('/backend-admin/test', 'TestinputController');
+
 Route::get('/home', 'HomeController@index');
 
