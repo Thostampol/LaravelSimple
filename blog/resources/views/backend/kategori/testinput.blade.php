@@ -32,7 +32,7 @@
             Home itu beranda
           </div>
           <div class="card-body">
-          <form method="post" action="{{ url('test') }}" enctype="multipart/form-data">
+          <form method="post" action="{{ url('backend-admin/kategori') }}" enctype="multipart/form-data">
           {{csrf_field()}}
             <div class="row">
               <div class="col-md-4"></div>
@@ -49,11 +49,12 @@
                 </div>
               </div>
               <div class="row">
-              <div class="col-md-4"></div>
-                <div class="form-group col-md-4">
-                  <label for="Email">filename:</label>
-                  <input type="file" class="form-control" name="filename">
-                </div>
+                <div class="col-md-4"></div>
+                  <div class="form-group col-md-4">
+                    <label for="Email">filename:</label>
+                    <input type="file" class="form-control" name="filename">
+                    <p class="text-danger">{{ $errors->first('filename') }}</p>
+                  </div>
               </div>
 
             <div class="row">

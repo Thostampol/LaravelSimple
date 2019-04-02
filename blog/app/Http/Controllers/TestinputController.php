@@ -45,6 +45,9 @@ class TestinputController extends Controller
     public function store(Request $request)
     {
         //dd($request);
+        $this->validate($request, [
+            'filename' => 'required|image|mimes:jpg,png,jpeg'
+        ]);
         if($request->hasfile('filename')){
             $file = $request->file('filename');
             $name=time()."_".$file->getClientOriginalName();
@@ -55,7 +58,7 @@ class TestinputController extends Controller
         $save->keterangan = $request->keterangan;
         $save->filename   = $name; 
         $save->save();   
-        return redirect('test')->with('success','Information has been Added');   
+        return redirect('backend-admin/kategori')->with('success','Information has been Added');   
     }
 
     /**
@@ -94,10 +97,21 @@ class TestinputController extends Controller
     {
         //
         $save = \App\testInput::find($id);   
+        if(!empty($request->filename)){
+            $this->validate($request, [
+                'filename' => 'required|image|mimes:jpg,png,jpeg'
+            ]);
+            if($request->hasfile('filename')){
+                $file = $request->file('filename');
+                $name=time()."_".$file->getClientOriginalName();
+                $file->move(storage_path().'/app/public/', $name);
+            }
+            $save->filename   = $name; 
+        }
         $save->name = $request->name;     
         $save->keterangan = $request->keterangan; 
         $save->save();
-        return redirect('test')->with('success','Information has been updated');   
+        return redirect('/backend-admin/kategori')->with('success','Information has been updated');   
     }
 
     /**

@@ -46,7 +46,14 @@
                     <input type="text" class="form-control" name="keterangan"  value="{{ $testinput->keterangan }}">
                   </div>
                 </div>
-
+                <div class="row">
+                <div class="col-md-4"></div>
+                  <div class="form-group col-md-4">
+                    <label for="Email">filename:</label>
+                    <input type="file" class="form-control" name="filename">
+                    <p class="text-danger">{{ $errors->first('filename') }}</p>
+                  </div>
+              </div>
               <div class="row">
                 <div class="col-md-4"></div>
                 <div class="form-group col-md-4" style="margin-top:60px">
