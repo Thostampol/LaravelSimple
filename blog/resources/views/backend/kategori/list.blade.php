@@ -34,32 +34,11 @@
             Home itu beranda <a href="test/create" class="btn btn-success">Add data</a>
           </div>
           <div class="card-body">
-            <div class="table-responsive">
-                    <table class="table table-bordered w-100">
-                        <thead>
-                        <tr>
-                            <th>name</th>
-                            <th>keterangan</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($testInput as $row)
-                            <tr>
-                                <td>{{$row['name']}}</td>
-                                <td>{{$row['keterangan']}}</td>
-                                <td><img src="{{ Storage::disk('local')->url($row['filename']) }}" width="50" height="50"></td>
-                                <td><a href="{{action('TestinputController@edit', $row['id'])}}" class="btn btn-warning">Edit</a></td>
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                </div>
+          {!! $dataTable->table() !!}
           </div>
           <div class="card-footer small text-muted">   </div>
         </div>
-
+        
       </div>
       <!-- /.container-fluid -->
 
@@ -83,6 +62,24 @@
     <i class="fas fa-angle-up"></i>
   </a>
   @include('backend.includes.scripts')
+  <!-- <script>
+         $(function() {
+               $('#table').DataTable({
+               processing: true,
+               serverSide: true,
+               ajax: "{{ url('kategori/getdatatable') }}",
+               columns: [
+                        { data: 'name', name : "name" },
+                        { data: 'keterangan', name : "keterangan" },
+                        { data: 'action', name: 'action', orderable: false, searchable: false},
+                     ]
+            });
+         });
+    </script> -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
+      <script src="https://cdn.datatables.net/buttons/1.0.3/js/dataTables.buttons.min.js"></script>
+      <script src="../vendor/datatables/buttons.server-side.js"></script>
+      {!! $dataTable->scripts() !!}
 </body>
 
 </html>

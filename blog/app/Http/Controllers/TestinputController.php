@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\KategoriDataTable;
 use\App\testInput;
 use Illuminate\Http\Request;
 
@@ -18,11 +19,28 @@ class TestinputController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    // public function index()
+    // {
+    //     //
+    //     $testInput=\App\testInput::all();
+    //     return view('backend.kategori.list',compact('testInput'));
+    // }
+
+    public function index(KategoriDataTable $dataTable)
     {
-        //
-        $testInput=\App\testInput::all();
-        return view('backend.kategori.list',compact('testInput'));
+        return $dataTable->render('backend.kategori.list');
+    }
+
+    public function getDatatables()
+    {
+        //return Datatables::eloquent(testInput::query())->make(true);
+        $kategori = testInput::select(['id', 'name', 'keterangan']);
+
+        return Datatables::eloquent($kategori)
+            ->addColumn('action', function ($kategori) {
+                return '<a href="kategori/'.$kategori->id.'/edit" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a><a href="kategori/'.$kategori->id.'/delete" class="btn btn-xs btn-warning"><i class="glyphicon glyphicon-delete"></i> Delete</a>';
+            })
+            ->make(true);
     }
 
     /**

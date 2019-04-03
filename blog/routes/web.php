@@ -26,6 +26,7 @@ Route::get('/avatars/{filename}', function ($filename){
 
 Auth::routes();
 Route::resource('/backend-admin/kategori', 'TestinputController');
+Route::get('/kategori/getdatatable', 'TestinputController@getDatatables');
 Route::resource('/backend-admin', 'BackendController', ['only' => ['index', 'show']]);
 Route::resource('/backend-admin/post', 'PostController');
 
